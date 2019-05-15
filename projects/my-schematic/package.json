@@ -1,0 +1,13 @@
+{
+  "name": "my-schematic",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json"
+    
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "schematics": "./schematics/collection.json"
+}

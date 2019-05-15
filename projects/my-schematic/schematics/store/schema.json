@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "TestSchematics",
+    "title": "My Store Schema",
+    "type": "object",
+    "properties": {
+        
+        "name": {
+            "description": "The name of the service.",
+            "type": "string",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "請輸入類別名稱"
+        },
+
+        "path": {
+            "type": "string",
+            "format": "path",
+            "description": "The path to create the service.",
+            "visible": false
+        },
+
+        "storeState":{
+            "type": "string",
+            "description": "The name of the project."
+        },
+
+        "actionName":{
+            "type": "string",
+            "description": "The name of the project."
+        },
+
+        "skipAddIndex":{
+            "type": "boolean",
+            "description": "跳過自動加入index檔案",
+            "default": false,
+            "alias": "skip"
+        }
+    },
+    "required": [
+        "name"
+    ]
+}

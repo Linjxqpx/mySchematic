@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "mySchematic": {
+      "root": "projects/my-schematic",
+      "sourceRoot": "projects/my-schematic/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/my-schematic/tsconfig.lib.json",
+            "project": "projects/my-schematic/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/my-schematic/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/my-schematic/src/test.ts",
+            "tsConfig": "projects/my-schematic/tsconfig.spec.json",
+            "karmaConfig": "projects/my-schematic/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/my-schematic/tsconfig.lib.json",
+              "projects/my-schematic/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "schematicLibrary"
