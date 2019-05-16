@@ -1,13 +1,23 @@
 {
-  "name": "my-schematic",
-  "version": "0.0.1",
+  "name": "@xqpx/schematics",
+  "version": "0.0.2",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json"
-    
+    "build": "tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cpy --parents schematics/*/schema.json ../../dist/my-schematic/",
+    "copy:files": "cpy --parents schematics/*/files/** ../../dist/my-schematic/",
+    "copy:collection": "cpy schematics/collection.json ../../dist/my-schematic/schematics/",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
   },
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
   },
-  "schematics": "./schematics/collection.json"
+  "schematics": "./schematics/collection.json",
+  "keywords": [
+    "schematics"
+  ],
+  "devDependencies": {
+    "cpy-cli": "^2.0.0",
+    "typescript": "^3.1.3"
+  }
 }

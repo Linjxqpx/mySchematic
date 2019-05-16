@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildStic": "tsc -p projects/my-schematic/tsconfig.schematics.json"
+    "buildStic": "ng build mySchematic",
+    "postbuildStic": "cd ./projects/my-schematic && npm run build"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +36,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "cpy-cli": "^2.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",

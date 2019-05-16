@@ -9,18 +9,18 @@ import * as stringUtils from '../strings';
 import { Observable } from 'rxjs';
 
 
-
+const DEFAULT_PATH = "/src/app/pages/master";
 
 export default function(_options: Schema): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     
     console.log(_options);
 
-    const path = _options.path == undefined ? "/" : _options.path + "/";
+    const path = _options.path == undefined ? DEFAULT_PATH : _options.path + "/";
     const destPath = normalize(path);
 
     const templateSource = apply(url('./files/'), [
-      template({ ...stringUtils, ..._options } as any),
+      template({ ...stringUtils, ..._options }),
       move(destPath)
     ]);
 
@@ -44,9 +44,6 @@ function addIndexFile(_options: Schema, path: string): Rule{
 
     const filterRole = findIndexFileRule();
     
-
-    var a = apply(url('../../testsrc'), [filterRole])
-
     const dir = apply(url('../../testsrc'), [filterRole])(_context) as Observable<Tree>;
     dir.subscribe(x => {
       x.visit(g => {
