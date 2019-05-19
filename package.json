@@ -9,7 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "buildStic": "ng build mySchematic",
-    "postbuildStic": "cd ./projects/my-schematic && npm run build"
+    "postbuildStic": "cd ./projects/my-schematic && npm run build",
+    "testStic": "npm link @xqpx/schematics && ng g @xqpx/schematics:store master --dry-run",
+    "Stic": "npm link @xqpx/schematics && ng g @xqpx/schematics:store masterAuth --ige=true --force"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
     "@angular-devkit/build-ng-packagr": "~0.13.0",
+    "@angular/cdk": "^7.3.7",
     "@angular/cli": "~7.3.9",
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "^7.2.15",

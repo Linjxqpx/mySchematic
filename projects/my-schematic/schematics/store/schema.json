@@ -37,6 +37,13 @@
             "description": "跳過自動加入index檔案",
             "default": false,
             "alias": "skip"
+        },
+
+        "ignoreEffect": {
+            "type": "boolean",
+            "description": "跳過自動加入index檔案",
+            "default": false,
+            "alias": "ige"
         }
     },
     "required": [

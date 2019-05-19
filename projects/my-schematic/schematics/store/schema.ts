@@ -16,4 +16,7 @@ export interface Schema extends ComponentSchema{
     
     skipAddIndex: boolean;
 
+    
+    ignoreEffect: boolean;
+
 }
